@@ -125,4 +125,9 @@ html, body {
   width: 0;
   height: 0;
 }
+
+.justify-forced {
+  -ms-flex-pack: distribute !important;
+      justify-content: space-around !important;
+}
 /*# sourceMappingURL=styles.css.map */
