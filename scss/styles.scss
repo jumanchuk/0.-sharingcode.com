@@ -1,0 +1,109 @@
+*{margin:0;}
+
+html,body{
+    background-color: rgb(17, 14, 14) !important;
+    color: rgb(223, 215, 215) !important;  
+    overflow-x: hidden;
+}
+
+.slides{
+    border: solid 0.5px rgb(58, 57, 57);
+    padding: 0 !important;
+}
+
+.boxsizing{
+    width: 100%!important;
+    border-style: none !important;
+    resize: auto;
+}
+
+.user-img{
+    max-width: 50px;
+}
+
+.cards{
+    padding: 25px;
+
+    &.row{
+
+    }
+}
+
+.card-border{
+    border-bottom: solid 0.5px rgb(58, 57, 57);
+    padding: 25px;
+}
+
+.card-submenu{
+    padding: 15px 0 0 0;
+}
+
+#tw-btn{
+    right: 0;
+}
+
+.fa-st-icons{
+    min-height: 25px !important;
+    text-decoration: none !important;
+    min-width: 40px;
+    color: rgb(255, 255, 255);
+    &:hover{
+        background-color: rgb(247, 242, 242);
+        color: rgb(0, 0, 0);
+    }
+}
+
+.fa{
+    margin: 5px !important;
+    text-align: center;
+    font-size: 20px;
+}
+
+.crd-label{
+    width: 100%;
+}
+
+.count{
+    max-width: 40px;
+    outline: none !important;
+    text-decoration: none;
+    border: none;
+    border-style: none;
+    width:auto !important;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.fa-tw-icons{
+    min-height: 25px !important;
+    text-decoration: none !important;
+    min-width: 40px;
+    color: rgb(255, 255, 255);
+    &:hover{
+        color: rgb(0, 0, 0);
+    }
+}
+
+#error{
+    color: rgb(160, 65, 65);
+}
+
+.userId{
+    font-size: small;
+    color:rgb(107, 107, 107) !important;
+
+}
+
+.userName{
+    font-size: large;
+}
+
+.subscrollind {
+    overflow-y: scroll !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* Internet Explorer 10+ */
+}
+.subscrollind::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
