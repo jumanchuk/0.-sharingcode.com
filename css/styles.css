@@ -15,9 +15,11 @@ html, body {
   padding: 0 !important;
 }
 
-.boxsizzing {
+.boxsizing {
   width: 100% !important;
-  border: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-top: none !important;
   resize: none;
   outline: none;
   font-size: x-large;
@@ -25,9 +27,9 @@ html, body {
   background-color: #110e0e;
 }
 
-@media only screen and (max-width: 320px) {
-  .boxsizzing {
-    font-size: middle !important;
+@media only screen and (min-width: 320px) {
+  .boxsizing {
+    font-size: 1.2em !important;
   }
 }
 
