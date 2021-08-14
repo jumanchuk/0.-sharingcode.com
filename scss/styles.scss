@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
 *{margin:0;}
 
 html,body{
     background-color: rgb(17, 14, 14) !important;
-    color: rgb(223, 215, 215) !important;  
+    color: rgb(223, 215, 215) !important;
     overflow-x: hidden;
+    font-family: 'Gugi', cursive !important;  
 }
 
 .slides{
@@ -13,8 +16,12 @@ html,body{
 
 .boxsizing{
     width: 100%!important;
-    border-style: none !important;
-    resize: auto;
+    border: none !important;
+    resize: none;
+    outline: none;
+    font-size: x-large;
+    color: rgb(223, 215, 215) !important;
+    background-color: rgb(17, 14, 14);
 }
 
 .user-img{
@@ -80,7 +87,7 @@ html,body{
     min-width: 40px;
     color: rgb(255, 255, 255);
     &:hover{
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
     }
 }
 
@@ -95,7 +102,8 @@ html,body{
 }
 
 .userName{
-    font-size: large;
+    font-size: middle;
+    color: rgb(145, 144, 144) !important;
 }
 
 .subscrollind {
