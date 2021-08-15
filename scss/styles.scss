@@ -14,6 +14,14 @@ html,body{
     padding: 0 !important;
 }
 
+.sile-margin{
+    margin: 0% 10% 10% 10%;
+}
+
+.sile-padding{
+    padding: 5% 10% 10% 10%;
+}
+
 .boxsizing{
     width: 100%!important;
     border-right: none !important;
@@ -41,9 +49,6 @@ html,body{
 .cards{
     padding: 25px;
 
-    &.row{
-
-    }
 }
 
 .card-border{
@@ -130,3 +135,32 @@ html,body{
 
     justify-content:space-around !important;
 }
+
+.navbar-fixed{
+   
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.tw-ul{
+    list-style:none;
+    font-size: 1.5em;
+    & li {
+        margin-top: 25px;
+    }
+    & li>a{
+        color: #dfd7d7 !important;
+        text-decoration: none !important;
+        &:hover{
+            text-decoration: none !important;
+            color: rgb(255, 255, 255) !important;
+        }
+    }
+}
+
+.fa-ul{
+    font-size: 1.5em !important;
+} 
