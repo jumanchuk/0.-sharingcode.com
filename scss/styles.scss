@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 
-*{margin:0;}
-
 html,body{
     background: rgb(0,0,0);
     background: -moz-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(3,2,2,1) 35%, rgba(9,8,8,1) 100%);
@@ -73,10 +71,12 @@ html,body{
 }
 
 .fa-st-icons{
+
     min-height: 40px !important;
     text-decoration: none !important;
     min-width: 40px;
     color: rgb(255, 255, 255);
+    font-size: 1.5em;
     &:hover{
         background-color: rgb(247, 242, 242);
         color: rgb(0, 0, 0);
@@ -107,9 +107,10 @@ html,body{
 .fa-tw-icons{
     min-height: 25px !important;
     text-decoration: none !important;
+    outline: none !important;
     min-width: 40px;
     color: rgb(255, 255, 255);
-    &:hover{
+    &:hover :focus :active {
         color: rgb(255, 255, 255);
     }
 }
@@ -162,6 +163,7 @@ html,body{
     & li>a{
         color: #dfd7d7 !important;
         text-decoration: none !important;
+        outline: none !important;
         &:hover{
             text-decoration: none !important;
             color: rgb(255, 255, 255) !important;
@@ -183,6 +185,20 @@ html,body{
     opacity: 0.80;
     
     & ul>li{
+        margin-top: 1%;
         text-decoration: none !important;
+        list-style:none;
+    }
+
+    & a{
+
+        text-decoration: none !important;
+        color: rgb(255, 255, 255) !important;
+
+        &:hover{
+            background-color: rgb(247, 242, 242);
+            color: black !important;
+            
+        }
     }
 }
