@@ -18,7 +18,9 @@ function send(){
     const card = new Card("Jury Umanchuk", "@jumanchuk", text,code);
 
     clearBoxes();
-    toggleCodeBox()
+    
+    let element = document.getElementById("code-box");
+    element.hidden = true;
 
     card.print();
 }
