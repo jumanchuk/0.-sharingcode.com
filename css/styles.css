@@ -59,6 +59,7 @@ html, body {
 }
 
 .codebox {
+  margin-top: 15px !important;
   padding: 15px;
   font-family: Courier, sans-serif;
   font-size: 1em;
@@ -86,6 +87,15 @@ html, body {
 .card-border {
   border-bottom: solid 0.5px #3a3939;
   padding: 25px;
+}
+
+.card-timeline {
+  border-bottom: solid 0.5px #3a3939;
+  padding: 25px;
+}
+
+.card-timeline:hover {
+  background-color: #080808;
 }
 
 .card-submenu {
@@ -116,6 +126,7 @@ html, body {
 }
 
 .crd-label {
+  margin-top: 10px;
   width: 100%;
 }
 
