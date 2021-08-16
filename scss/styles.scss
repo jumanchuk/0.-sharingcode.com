@@ -26,12 +26,11 @@ html,body{
 
 .boxsizing{
     width: 100%!important;
-    border-right: none !important;
-    border-left: none !important;
-    border-top: none !important;
+    height: auto;
     resize: none;
     outline: none;
     font-size: x-large;
+    overflow: hidden;
     color: rgb(223, 215, 215) !important;
     background: rgb(0,0,0);
     background: -moz-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(3,2,2,1) 35%, rgba(9,8,8,1) 100%);
@@ -39,6 +38,39 @@ html,body{
     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(3,2,2,1) 35%, rgba(9,8,8,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#090808",GradientType=1);
 }
+
+#crd-text{
+    border-bottom: solid 1px #dfd7d7;
+    &[contentEditable=true]:empty:not(:focus):before{
+        content:attr(placeholder)
+    }
+}
+
+#code-box{
+    margin-top: 5px;
+    border-top: none !important;
+    border-bottom: solid 1px #dfd7d7;
+    border-left: solid 1px #dfd7d7;
+    border-right: solid 1px #dfd7d7;
+    background: #b4bbc2;
+    color: black !important;
+    &[contentEditable=true]:empty:not(:focus):before{
+        content:attr(placeholder)
+    }
+}
+
+.codebox {
+    padding: 15px;
+    font-family: Courier, sans-serif;
+    font-size: 1em;
+      line-height: 1.3;
+    color: rgb(0, 0, 0) !important;
+    background-color: #b4bbc2;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 10px;
+  }
 
 @media only screen and (min-width: 320px) {
 
@@ -54,7 +86,6 @@ html,body{
 
 .cards{
     padding: 25px;
-
 }
 
 .card-border{
