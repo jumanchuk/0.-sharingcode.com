@@ -1,4 +1,4 @@
-function showCodeBox(){
+function toggleCodeBox(){
 
     let element = document.getElementById("code-box");
     
@@ -18,7 +18,8 @@ function send(){
     const card = new Card("Jury Umanchuk", "@jumanchuk", text,code);
 
     clearBoxes();
-    
+    toggleCodeBox()
+
     card.print();
 }
 
@@ -91,9 +92,9 @@ function like(element){
         let sum =  parseInt(value) - parseInt(1);
 
         if(sum<1){
-        element.children[0].textContent = ' 0';
+            element.children[0].textContent = ' 0';
         }else{
-        element.children[0].textContent = '\u00A0' + sum;
+            element.children[0].textContent = '\u00A0' + sum;
         }
 
         element.style.setProperty("color", "white", "important");
@@ -111,9 +112,9 @@ function rtw(element){
         let sum =  parseInt(value) + parseInt(1);
 
         if(sum<1){
-        element.children[0].textContent = ' 0';
+            element.children[0].textContent = ' 0';
         }else{
-        element.children[0].textContent = '\u00A0' + sum;
+            element.children[0].textContent = '\u00A0' + sum;
         }
 
         element.style.setProperty("color", "green", "important");
