@@ -18,7 +18,7 @@ function Card(name,user,text){
     this.print = function(){ 
 
         if ( this.text ==""){
-            error.innerHTML = "Ups! Creo que olvidaste escribir algo."
+            error.innerHTML = 'Houston, we have a problem!. <i class="fa fa-bomb"></i>'
             error.removeAttribute('hidden');
         }
         else{
@@ -31,7 +31,7 @@ function Card(name,user,text){
             '<div class="col-12 card-border"><div class="container"><div class="row"><div class="col-2"><img src="img/user.png" ' +
             'class="rounded-circle user-img" alt="Cinque Terre"></div><div class="col"><div class="crd-label userName">' + this.name + ' <span class="userId">'+ this.user +'k</span></div><div class="crd-label">'+ this.text +'</div>' +
             '<div class="d-flex justify-content-around card-submenu"><a class="p-2 fa-tw-icons rounded-circle" href="#">'+
-            '<i class="fa fa-comment-o"> 0</i></a><a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="bookmark(this)"><i class="fa fa-bookmark-o"></i></a>'+
+            '<i class="fa fa-comment-o"> 0</i></a><a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="bookmark(this)"><i class="fa fa-star"></i></a>'+
             '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="rtw(this)"><i class="fa fa-retweet"> 0</i>'+
             '</a><a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="like(this)">'+
             '<i class="fa fa-heart"> 0</i></a></div></div></div></div></div>');
@@ -106,7 +106,7 @@ function bookmark(element){
     
     if(!element.classList.contains("bookmark")) {
 
-        element.style.setProperty("color", "green", "important");
+        element.style.setProperty("color", "rgb(247, 252, 0)", "important");
         element.classList.add("bookmark");
                                 
     } else {
