@@ -16,6 +16,7 @@ html,body{
     padding: 0 !important;
 }
 
+
 .sile-margin{
     margin: 0% 10% 10% 10%;
 }
@@ -79,6 +80,25 @@ html,body{
     }
  
  }
+
+xmp {
+
+    overflow: auto !important;
+    font-family: “Consolas”,monospace !important;
+    font-size: 9pt !important;
+    text-align:left !important;
+    overflow-x: auto !important; /* Use horizontal scroller if needed; for Firefox 2, not
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    word-wrap: break-word !important; /* Internet Explorer 5.5+ */
+    margin: 0px 0px 0px 0px !important;
+    padding:5px 5px 5px 5px !important;
+    white-space : normal !important; /* crucial for IE 6, maybe 7? */
+}
+
+pre, code {
+    margin: 0px 0px 0px 0px !important;
+}
 
 .user-img{
     max-width: 50px;

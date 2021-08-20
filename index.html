@@ -26,24 +26,29 @@
     <div class="container-fluid" style="height: 100vh;">
         <div class="row scrollind">
             <!--Left-->
-            <div class="col-sm-2 col-md-2 col-md-4 d-none d-sm-block slides subscrollind " style="height: 100vh;">
+            <div class="col-sm-2 col-md-2 col-md-4 d-none d-sm-block slides subscrollind " >
                 <div class="d-flex justify-content-end sile-margin">
                     <div class="p-2">
-                        <ul class="tw-ul d-none d-sm-block d-lg-none">
-                            <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-code fa-ul"></span></a></li>
-                            <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-home fa-ul"></span></a></li>
-                            <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-envelope-o fa-ul"></span></a></li>
-                            <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-bell fa-ul"></span></a></li>
-                            <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-user fa-ul"></span></a></li>
-                        </ul>
-                        <ul class="tw-ul d-none d-lg-block">
-                            <li><a href="#"><span class="fa fa-code fa-ul"></span></a></li>
-                            <li><a href="#"><span class="fa fa-home fa-ul"></span>Home</a></li>
-                            <li><a href="#"><span class="fa fa-hashtag fa-ul"></span>Popular</a></li>
-                            <li><a href="#"><span class="fa fa-envelope-o fa-ul"></span>Messages</a></li>
-                            <li><a href="#"><span class="fa fa-bell fa-ul"></span>Notifications</a></li>
-                            <li><a href="#"><span class="fa fa-user fa-ul"></span>Profile</a></li>
-                        </ul>
+                        <div class="d-flex align-items-end flex-column" >
+                            <div class="p-2">
+                                <ul class="tw-ul d-none d-sm-block d-lg-none">
+                                    <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-code fa-ul"></span></a></li>
+                                    <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-home fa-ul"></span></a></li>
+                                    <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-envelope-o fa-ul"></span></a></li>
+                                    <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-bell fa-ul"></span></a></li>
+                                    <li><a href="#"><span class="rounded-circle fa-st-icons fa fa-user fa-ul"></span></a></li>
+                                </ul>
+                                <ul class="tw-ul d-none d-lg-block">
+                                    <li><a href="#"><span class="fa fa-code fa-ul"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-home fa-ul"></span> Home</a></li>
+                                    <li><a href="#"><span class="fa fa-hashtag fa-ul"></span> Popular</a></li>
+                                    <li><a href="#"><span class="fa fa-envelope-o fa-ul"></span> Messages</a></li>
+                                    <li><a href="#"><span class="fa fa-bell fa-ul"></span> Notifications</a></li>
+                                    <li><a href="#"><span class="fa fa-user fa-ul"></span> Profile</a></li>
+                                    <li><a href="#"><span class="fa fa-sign-out fa-ul"></span> LogOut</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,9 +61,9 @@
                         <!--Start Card-->
                         <div class="col-12 card-border d-flex">
                             <a class="mr-auto p-2 fa-tw-icons" href="#">INICIO</a>
-                            <a id="fav" class="p-2 fa-tw-icons" href="#" tooltip="Favs"><i class="fa fa-star"> 0</i></a>
-                            <a id="fwg" class="p-2 fa-tw-icons" href="#" tooltip="Following"><i class="fa fa-users"> 0</i></a>
-                            <a id="fws" class="p-2 fa-tw-icons" href="#" tooltip="Followers"><i class="fa fa-sign-language"> 0</i></a>
+                            <a id="fav" class="p-2 fa-tw-icons" href="#" data-toggle="tooltip" data-placement="bottom" title="Tweet Saved"><i class="fa fa-star"> 0</i></a>
+                            <a id="fwg" class="p-2 fa-tw-icons" href="#" data-toggle="tooltip" data-placement="bottom" title="Followers"><i class="fa fa-users"> 0</i></a>
+                            <a id="fws" class="p-2 fa-tw-icons" href="#" data-toggle="tooltip" data-placement="bottom" title="Followings"><i class="fa fa-sign-language"> 0</i></a>
                         </div>
                         <div id="crd-principal" class="col-12 card-border">
                             <div class="container cards">
@@ -143,6 +148,9 @@
             <a class="p-2 rounded-circle fa-st-icons" href="#"><i class="fa fa-bell"></i></a>
         </div>
     </nav>
+
+    <script src="js/timeline.js"></script>
+
 </body>
 
 </html>

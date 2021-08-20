@@ -1,3 +1,9 @@
+let name = prompt("¿Cual es tu nombre?");
+let user = prompt("Escribe un nombre de usuario");
+
+alert("Bienvenid@ "+name);
+
+
 function toggleCodeBox(){
 
     let element = document.getElementById("code-box");
@@ -15,14 +21,13 @@ function send(){
     let text = document.getElementById('crd-text').textContent;
     let code = document.getElementById('code-box').innerText;
 
-    const card = new Card("Jury Umanchuk", "@jumanchuk", text,code);
+    const tweet = new Tweet(name,'@'+user, text,code);
 
     clearBoxes();
-
     let element = document.getElementById("code-box");
     element.hidden = true;
 
-    card.print();
+    tweet.print();
 }
 
 function clearBoxes(){
@@ -31,51 +36,98 @@ function clearBoxes(){
     document.getElementById('code-box').innerHTML = "";
 }
 
-
 //Object Card
-function Card(name,user,text,code){
+class Tweet {
 
-    this.name = name;
-    this.user   = user;
-    this.text  = text;
-    this.code  = code;
+    constructor(name, user, text, code) {
 
-    let error = document.getElementById('error');
+        this.name = name;
+        this.user = user;
+        this.text = text;
+        this.code = code;
 
-    this.print = function(){ 
+    }
 
-        if ( this.text ==""){
-            error.innerHTML = 'Houston, we have a problem!. <i class="fa fa-bomb"></i>'
+    print(){
+
+        let error = document.getElementById('error');
+
+        if (this.text == "") {
+            error.innerHTML = 'Houston, we have a problem!. <i class="fa fa-bomb"></i>';
             error.removeAttribute('hidden');
         }
-        else{
-            let hidden ="";
+        else {
+            let hidden = "";
 
             error.innerHTML = "";
             error.hidden = "true";
-            
-            if(this.code==""){
-                hidden ='hidden';
+
+            if (this.code == "") {
+                hidden = 'hidden';
             }
 
-            document.getElementById("crd-text").value = ""
+            document.getElementById("crd-text").value = "";
             document.getElementById('crd-principal').insertAdjacentHTML('afterend',
-            '<div class="col-12 card-timeline"><div class="container"><div class="row"><div class="col-2"><img src="img/user.png" ' +
-            'class="rounded-circle user-img" alt="Cinque Terre"></div><div class="col-10"><div class="crd-label userName">' + this.name + '<span class="userId">'+
-             this.user +'</span></div><div class="crd-label">'+ this.text +'<div class="codebox" '+ hidden +'><pre><code data-language="css"><xmp>'+ this.code +'</xmp></code></pre></div>' +
-            '<div class="d-flex justify-content-around card-submenu"><a class="p-2 fa-tw-icons rounded-circle" href="#">'+
-            '<i class="fa fa-comment-o"> 0</i></a><a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="bookmark(this)"><i class="fa fa-star"></i></a>'+
-            '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="rtw(this)"><i class="fa fa-retweet"> 0</i>'+
-            '</a><a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="like(this)">'+
-            '<i class="fa fa-heart"> 0</i></a></div></div></div></div></div>');
-        }
+            '<div class="col-12 card-timeline">'+
+                '<div class="container">'+
+                    '<div class="row">'+
+                        '<div class="col-2">'+
+                            '<img src="img/user.png" class="rounded-circle user-img" alt="Cinque Terre">'+ 
+                        '</div>'+
 
+                        '<div class="col-10">'+
+                            '<div class="crd-label userName">' + this.name + 
+                                '<span class="userId">' + this.user + 
+                                '</span>'+
+                            '</div>'+
+
+                            '<div class="crd-label">' + this.text + 
+                                '<div class="codebox" ' + hidden + '>'+
+                                    '<pre>'+
+                                        '<code data-language="css">'+
+                                            '<xmp>' + this.code + 
+                                            '</xmp>'+
+                                        '</code>'+
+                                    '</pre>'+
+                                '</div>' +
+
+                                '<div class="d-flex justify-content-around card-submenu">'+
+
+                                    '<a class="p-2 fa-tw-icons rounded-circle" href="#">' +
+                                        '<i class="fa fa-comment-o"> 0'+
+                                        '</i>'+
+                                    '</a>'+
+
+                                    '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="addToBookmark(this)">'+
+                                        '<i class="fa fa-star">'+
+                                        '</i>'+
+                                    '</a>' +
+
+                                    '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="retweet(this)">'+
+                                        '<i class="fa fa-retweet"> 0'+
+                                        '</i>' +
+                                    '</a>'+
+                                    
+                                    '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="like(this)">' +
+                                        '<i class="fa fa-heart"> 0'+
+                                        '</i>'+
+                                    '</a>'+
+                                    
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'
+            );
+        }
     }
 }
+//End Object Card
 
 function like(element){
 
-        let value = element.children[0].textContent;    
+    let value = element.children[0].textContent;    
 
     if(!element.classList.contains("like")) {
 
@@ -104,10 +156,9 @@ function like(element){
     }
 }
 
+function retweet(element){
 
-function rtw(element){
-
-        let value = element.children[0].textContent;
+    let value = element.children[0].textContent;
 
     if(!element.classList.contains("rtw")) {
 
@@ -137,9 +188,8 @@ function rtw(element){
     }
 }
 
-function bookmark(element){
-
-    
+function addToBookmark(element){
+        
     let value = document.getElementById("fav").children[0].textContent;
     
     if(!element.classList.contains("bookmark")) {
@@ -170,3 +220,7 @@ function bookmark(element){
 
     }
 }
+
+
+
+
