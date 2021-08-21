@@ -86,8 +86,30 @@ html,body{
     .timeline { 
         margin-bottom:30px;
     }
- 
+
+    .fa-st-icons{
+        &:active{
+            background-color: rgb(247, 247, 242) !important;
+            color: rgb(0, 0, 0) !important;
+        }
+        &:hover{
+            color: rgb(255, 255, 255);
+        }
+    }
  }
+
+ @media only screen and (min-width: 574px) {
+
+    .fa-st-icons{
+        &:hover{
+            background-color: rgb(247, 247, 242) !important;
+            color: rgb(0, 0, 0);
+        }
+    }
+ }
+
+
+
 xmp {
 
     overflow: auto !important;
@@ -143,11 +165,6 @@ pre, code {
     min-width: 40px;
     color: rgb(255, 255, 255);
     font-size: 1.3em;
-
-    &:hover{
-        background-color: rgb(247, 247, 242) !important;
-        color: rgb(0, 0, 0);
-    }
 }
 
 .fa{
