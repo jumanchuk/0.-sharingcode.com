@@ -185,13 +185,17 @@ pre, code {
   color: #a04141;
 }
 
-.userId {
-  margin-left: 10px;
+.user {
+  padding: 0px 5px 0px 0px !important;
   font-size: small;
   color: #6b6b6b !important;
 }
 
-.userName {
+.userlabel > .p-2 {
+  padding: 0px 10px 0px 0px !important;
+}
+
+.userlabel {
   font-size: middle;
   color: #919090 !important;
 }

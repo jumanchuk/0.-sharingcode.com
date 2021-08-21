@@ -21,7 +21,9 @@ function send(){
     let text = document.getElementById('crd-text').textContent;
     let code = document.getElementById('code-box').innerText;
 
-    const tweet = new Tweet(name,'@'+user, text,code);
+    now = new Date();
+
+    const tweet = new Tweet(name,'@'+user, text,code,now);
 
     clearBoxes();
     let element = document.getElementById("code-box");
@@ -39,12 +41,13 @@ function clearBoxes(){
 //Object Card
 class Tweet {
 
-    constructor(name, user, text, code) {
+    constructor(name, user, text, code, datetime) {
 
         this.name = name;
         this.user = user;
         this.text = text;
         this.code = code;
+        this.datetime = datetime;
 
     }
 
@@ -76,9 +79,10 @@ class Tweet {
                         '</div>'+
 
                         '<div class="col-10">'+
-                            '<div class="crd-label userName">' + this.name + 
-                                '<span class="userId">' + this.user + 
-                                '</span>'+
+                            '<div class="d-flex justify-content-start crd-label userlabel">'+
+                                '<div class="p-2 user">'+ this.name + '</div>'+
+                                '<div class="p-2 user">' + this.user + '</div>'+
+                                '<div class="p-2 user">' + formatDate(this.datetime) + '</div>'+
                             '</div>'+
 
                             '<div class="crd-label">' + this.text + 
@@ -221,6 +225,36 @@ function addToBookmark(element){
     }
 }
 
+function formatDate(date){
+//font: https://javascript.info/date
 
+    if ((new Date() - date) / 1000 < 1) {
+        return 'right now';
+    } 
+    else if ((new Date() - date) / 1000 > 1 && (new Date() - date) / 1000 < 60) 
+    {
+        let n = Math.floor((new Date() - date) / 1000);
+        return `${n} sec. ago`;
+        
+    } else if ((new Date() - date) / 1000 > 60 && (new Date() - date) / 1000 < 3600) {
 
+        let m = Math.floor((new Date() - date) / (1000 * 60));
+        return `${m} min. ago`;
 
+    } else if ((new Date() - date) / 1000 > 3600) {
+
+        let newDate = new Date(date);
+        let day = newDate.getDate();
+        let month = newDate.getMonth();
+
+    if (day < 10) {
+        day = `0${day}`
+    }
+
+    if (month < 10) {
+        month = `0${month}`
+    }
+        return `${day}:${month}:${newDate.getFullYear()} ${newDate.getDay}`;
+    }
+
+}

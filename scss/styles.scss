@@ -188,14 +188,17 @@ pre, code {
     color: rgb(160, 65, 65);
 }
 
-.userId{
-    margin-left: 10px;
+.user{
+    padding: 0px 5px 0px 0px !important;
     font-size: small;
     color:rgb(107, 107, 107) !important;
-
 }
 
-.userName{
+.userlabel > .p-2{
+    padding: 0px 10px 0px 0px !important;
+}
+
+.userlabel{
     font-size: middle;
     color: rgb(145, 144, 144) !important;
 }
