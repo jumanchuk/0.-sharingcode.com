@@ -76,6 +76,12 @@ html, body {
   }
 }
 
+@media only screen and (max-width: 573px) {
+  .timeline {
+    margin-bottom: 30px;
+  }
+}
+
 xmp {
   overflow: auto !important;
   font-family: “Consolas”,monospace !important;
