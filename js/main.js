@@ -1,7 +1,18 @@
-let name = prompt("¿Cual es tu nombre?");
-let user = prompt("Escribe un nombre de usuario");
+const name = localStorage.getItem('name')
+const user = localStorage.getItem('user')
 
-alert("Bienvenid@ "+name);
+if(name || user){
+
+    
+
+}else{
+
+    let name = document.getElementById("name").value;
+    let user = document.getElementById("user").value;
+
+    localStorage.setItem("user", user);
+    localStorage.setItem("name", name);
+}
 
 
 function toggleCodeBox(){
