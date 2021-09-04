@@ -22,7 +22,6 @@ function login(){
     setTimeout ("redireccionar()", 5000); //tiempo expresado en milisegundos
 }
 
-
 function redireccionar(){
     window.location.href = './timeline.html'; //relative to domain
 } 

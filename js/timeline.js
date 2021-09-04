@@ -1,20 +1,12 @@
-const tweet0 = new Tweet("Stackoverflow",'@stack', 'Hi!, this is my first code tweet.','<div class="hi">Hello World</div>',getTweetdate()-7000);
+//JSON
+const tweets = [
+                  { id: 3, name: 'Stackoverflow', user: '@stack', text:'Hi!, this is my first code tweet.',code:'<div class="hi">Hello World</div>',datetime:getTweetdate()-7000},
+                  { id: 4, name: 'Twitter', user: '@twitter', text: 'Oh Well!, this is my brother.',code: '<div class="twitter">first Try</div>',datetime:getTweetdate()-8000},
+                  { id: 1, name: 'Stackoverflow', user: '@stack', text: 'Hi!, this is my Second code tweet.',code:'<div class="hi">Hello World 2</div>',datetime:getTweetdate()},
+                  { id: 2, name: 'Twitter', user: '@twitter', text: 'I like it!.',code:'<div class="twitter">Second Try</div>',datetime:getTweetdate()-6000}
+                ];
 
-now = new Date();
-
-const tweet1 = new Tweet("Twitter",'@twitter', 'Oh Well!, this is my brother.','<div class="twitter">first Try</div>',getTweetdate()-8000);
-
-now = new Date();
-
-const tweet2 = new Tweet("Stackoverflow",'@stack', 'Hi!, this is my Second code tweet.','<div class="hi">Hello World 2</div>',getTweetdate());
-
-now = new Date();
-
-const tweet3 = new Tweet("Twitter",'@twitter', 'I like it!.','<div class="twitter">Second Try</div>',getTweetdate()-6000);
-
-const timeLine = [tweet0,tweet1,tweet2,tweet3];
-
-timeLine.sort(function (a, b) {
+tweets.sort(function (a, b) {
     if (a.datetime > b.datetime) {
       return 1;
     }
@@ -25,9 +17,10 @@ timeLine.sort(function (a, b) {
     return 0;
   });
 
-for(let i = 0; i <timeLine.length;i++){
+for(let i = 0; i <tweets.length;i++){
 
-    timeLine[i].print();
+    const tweet = new Tweet(tweets[i].id,tweets[i].name,tweets[i].user,tweets[i].text,tweets[i].code,tweets[i].datetime);
+    tweet.print();
 }
 
 function getTweetdate(){

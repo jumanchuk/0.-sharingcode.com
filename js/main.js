@@ -3,7 +3,7 @@ const user = localStorage.getItem('user')
 
 if(name || user){
 
-    
+    /* Show Name in footer */
 
 }else{
 
@@ -52,8 +52,9 @@ function clearBoxes(){
 //Object Card
 class Tweet {
 
-    constructor(name, user, text, code, datetime) {
+    constructor(id, name, user, text, code, datetime) {
 
+        this.id = id;
         this.name = name;
         this.user = user;
         this.text = text;
