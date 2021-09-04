@@ -34,7 +34,7 @@ function send(){
 
     now = new Date();
 
-    const tweet = new Tweet(name,'@'+user, text,code,now);
+    const tweet = new Tweet(4,name,'@'+user, text,code,now);
 
     clearBoxes();
     let element = document.getElementById("code-box");
