@@ -297,6 +297,7 @@ pre, code {
 .formelement {
   background-color: #000000 !important;
   color: #ffffff !important;
+  max-width: 420px;
 }
 
 .formelement:focus {
