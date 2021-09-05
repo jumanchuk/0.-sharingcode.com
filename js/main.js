@@ -32,15 +32,22 @@ function send(){
     let text = document.getElementById('crd-text').textContent;
     let code = document.getElementById('code-box').innerText;
 
-    now = new Date();
+    now = new Date()-1;
 
-    const tweet = new Tweet(4,name,'@'+user, text,code,now);
+    let dataBase = JSON.parse(localStorage.getItem('dataBase'));
+    
+    const tweet = new Tweet(dataBase.length+1,name,'@'+user, text,code,now);
+
+    dataBase.push(tweet);
+
+    localStorage.setItem('dataBase',JSON.stringify(dataBase));
 
     clearBoxes();
     let element = document.getElementById("code-box");
     element.hidden = true;
 
     tweet.print();
+
 }
 
 function clearBoxes(){

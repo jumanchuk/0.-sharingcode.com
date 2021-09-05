@@ -1,10 +1,11 @@
 
-const namels = localStorage.getItem('name')
-const userls = localStorage.getItem('user')
+const namels = localStorage.getItem('name');
+const userls = localStorage.getItem('user');
 
 if(namels || userls){
 
     redireccionar(); //redirect
+
 }else{
 
     let buttom = document.getElementById("btn-login");

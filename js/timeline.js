@@ -1,10 +1,20 @@
-//JSON
-const tweets = [
-                  { id: 3, name: 'Stackoverflow', user: '@stack', text:'Hi!, this is my first code tweet.',code:'<div class="hi">Hello World</div>',datetime:getTweetdate()-7000},
-                  { id: 4, name: 'Twitter', user: '@twitter', text: 'Oh Well!, this is my brother.',code: '<div class="twitter">first Try</div>',datetime:getTweetdate()-8000},
-                  { id: 1, name: 'Stackoverflow', user: '@stack', text: 'Hi!, this is my Second code tweet.',code:'<div class="hi">Hello World 2</div>',datetime:getTweetdate()},
-                  { id: 2, name: 'Twitter', user: '@twitter', text: 'I like it!.',code:'<div class="twitter">Second Try</div>',datetime:getTweetdate()-6000}
-                ];
+let dataBase = localStorage.getItem('dataBase');
+
+if (!dataBase){
+
+  tweets = [
+    { id: 3, name: 'Stackoverflow', user: '@stack', text:'Hi!, this is my first code tweet.',code:'<div class="hi">Hello World</div>',datetime:getTweetdate()-7000},
+    { id: 4, name: 'Twitter', user: '@twitter', text: 'Oh Well!, this is my brother.',code: '<div class="twitter">first Try</div>',datetime:getTweetdate()-3000},
+    { id: 1, name: 'Stackoverflow', user: '@stack', text: 'Hi!, this is my Second code tweet.',code:'<div class="hi">Hello World 2</div>',datetime:getTweetdate()-1},
+    { id: 2, name: 'Twitter', user: '@twitter', text: 'I like it!.',code:'<div class="twitter">Second Try</div>',datetime:getTweetdate()-6000}];
+
+    localStorage.setItem('dataBase',JSON.stringify(tweets));
+
+}else{
+
+  tweets = JSON.parse(dataBase);
+
+}
 
 tweets.sort(function (a, b) {
     if (a.datetime > b.datetime) {
