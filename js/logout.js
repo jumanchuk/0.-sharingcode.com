@@ -11,6 +11,7 @@ function LogOut(){
 
     localStorage.removeItem("name");
     localStorage.removeItem("user");
-    
+    localStorage.removeItem("dataBase");
+
     window.location.href = 'index.html'; //relative to domain
 }
