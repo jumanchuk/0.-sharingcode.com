@@ -1,7 +1,9 @@
+
 const userls = localStorage.getItem('user')
 
 let user = JSON.parse(userls);
 
+startArtyom(user.fullname);
 
 function toggleCodeBox() {
 
@@ -301,3 +303,42 @@ function formatDate(date) {
     }
 
 }
+
+function startArtyom(name){
+
+    const personalAssistant = new Artyom();
+    
+    personalAssistant.fatality();// Detener cualquier instancia previa
+    
+    setTimeout(function(){// Esperar 250ms para inicializar
+        personalAssistant.initialize({
+            lang:"es-ES",// Más lenguajes son soportados, lee la documentación
+            continuous:true,// Artyom obedecera por siempre
+            listen:true, // Iniciar !
+            debug:true, // Muestra un informe en la consola
+            speed: 1 // Habla normalmente
+        }).then(function(){
+            console.log("Ready to work !");
+        });
+
+        personalAssistant.say('Hola '+ name +'. Soy tu asistente virtual. Solo di "Hola" y mi nombre y te ayudare.');
+        personalAssistant.say('Soy "María" un placer!');
+        console.log(name);
+
+    },1300);
+
+
+    // Add a single command
+    var comandos = {
+        indexes:["Hola María"], // Decir alguna de estas palabras activarairel comando
+        action:function(){ // Acción a ejecutar cuando alguna palabra de los indices es reconocida
+
+            personalAssistant.say("¿Y ahora que quieres? estoy ocupada.")
+            personalAssistant.say("Aun estoy aprendiendo."); 
+            personalAssistant.say("Espero pronto poder ayudarte en tus tareas.");
+        }
+    };
+
+    personalAssistant.addCommands(comandos); // Agregar comando
+
+    }
