@@ -1,29 +1,21 @@
-const name = localStorage.getItem('name')
-const user = localStorage.getItem('user')
+const userls = localStorage.getItem('user')
 
-if (name || user) {
-
-    /* Show Name in footer */
-
-} else {
-
-    let name = document.getElementById("name").value;
-    let user = document.getElementById("user").value;
-
-    localStorage.setItem("user", user);
-    localStorage.setItem("name", name);
-}
+let user = JSON.parse(userls);
 
 
 function toggleCodeBox() {
 
     let element = document.getElementById("code-box");
-
+    
     if (element.hidden == true) {
+
         element.hidden = false;
+
     } else {
+        
         element.value = "";
         element.hidden = true;
+
     }
 }
 
@@ -35,7 +27,7 @@ function send() {
     now = new Date() - 1;
     let dataBase = JSON.parse(localStorage.getItem('dataBase'));
 
-    const tweet = new Tweet(dataBase.length + 1, name, '@' + user, text, code, now);
+    const tweet = new Tweet(dataBase.length + 1, user.fullname, '@' + user.username, text, code, 0, 0, 0,now);
     dataBase.push(tweet);
 
     try {
@@ -44,6 +36,7 @@ function send() {
         tweet.print();
 
     } catch (error) {
+
         console.error(error);
     }
 
@@ -61,13 +54,16 @@ function clearBoxes() {
 //Object Card
 class Tweet {
 
-    constructor(id, name, user, text, code, datetime) {
+    constructor(id, name, user, text, code, bookmark, retweet, like, datetime) {
 
         this.id = id;
         this.name = name;
         this.user = user;
         this.text = text;
         this.code = code;
+        this.bookmark = bookmark;
+        this.retweet = retweet;
+        this.like = like;
         this.datetime = datetime;
 
     }
@@ -92,16 +88,13 @@ class Tweet {
 
     print() {
 
-        let hidden = "";
+        let error = document.getElementById('error');
 
-        error.innerHTML = "";
-        error.hidden = "true";
-
-        if (this.code == "") {
-            hidden = 'hidden';
+        if(error){
+            error.innerHTML = "";
+            error.hidden = "true";
         }
 
-        document.getElementById("crd-text").value = "";
         document.getElementById('crd-principal').insertAdjacentHTML('afterend',
             '<div class="col-12 card-timeline">' +
             '<div class="container">' +
@@ -118,7 +111,7 @@ class Tweet {
             '</div>' +
 
             '<div class="crd-label">' + this.text +
-            '<div class="codebox" ' + hidden + '>' +
+            '<div class="codebox" ' + (this.code == "" ? "hidden" : "") + '>' +
             '<pre>' +
             '<code data-language="css">' +
             '<xmp>' + this.code +
@@ -134,18 +127,18 @@ class Tweet {
             '</i>' +
             '</a>' +
 
-            '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="addToBookmark(this)">' +
+            '<a class="p-2 fa-tw-icons ' + (this.bookmark ? "bookmark" : "") +  ' rounded-circle" href="#" onclick="addToBookmark(this)">' +
             '<i class="fa fa-star">' +
             '</i>' +
             '</a>' +
 
             '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="retweet(this)">' +
-            '<i class="fa fa-retweet"> 0' +
+            '<i class="fa fa-retweet"> ' + this.retweet +
             '</i>' +
             '</a>' +
 
             '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="like(this)">' +
-            '<i class="fa fa-heart"> 0' +
+            '<i class="fa fa-heart"> '+ this.like +
             '</i>' +
             '</a>' +
 
@@ -255,6 +248,25 @@ function addToBookmark(element) {
         }
 
     }
+}
+
+function filter(element){
+
+    let hashtagFilter = element.innerText;
+    let dataBase = JSON.parse(localStorage.getItem('dataBase'));
+
+    $("div.card-timeline").remove();
+    
+    const tweets = dataBase.filter(query => query.text.includes(hashtagFilter));
+
+    for(let i = 0; i <tweets.length;i++){
+
+    const tweet = new Tweet(tweets[i].id,tweets[i].name,tweets[i].user,tweets[i].text,tweets[i].code,tweets[i].bookmark,tweets[i].retweet,tweets[i].like,tweets[i].datetime);
+    tweet.print();
+
+    }
+
+
 }
 
 function formatDate(date) {

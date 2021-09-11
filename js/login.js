@@ -1,28 +1,22 @@
 
-const namels = localStorage.getItem('name');
 const userls = localStorage.getItem('user');
+const buttom = $("#btn-login");
 
-if(namels || userls){
-
-    redireccionar(); //redirect
-
-}else{
-
-    let buttom = document.getElementById("btn-login");
-    buttom.addEventListener("click",login);
-}
+(userls) ?  redireccionar('./timeline.html')  :  buttom[0].addEventListener("click",login) ;
 
 function login(){
 
-    let name = document.getElementById("name").value;
-    let user = document.getElementById("user").value;
+    const fullname = document.getElementById("name").value;
+    const username = document.getElementById("user").value;
 
-    localStorage.setItem("user", user);
-    localStorage.setItem("name", name);
+    const user = {fullname: fullname, username: username, bookmarks: 0, followers: 0, followings: 0};
+
+    localStorage.setItem("user", JSON.stringify(user));
 
     setTimeout ("redireccionar()", 5000); //tiempo expresado en milisegundos
 }
 
-function redireccionar(){
-    window.location.href = './timeline.html'; //relative to domain
+function redireccionar(url){
+
+    window.location.href = url; //relative to domain
 } 
