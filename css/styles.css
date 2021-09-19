@@ -308,4 +308,16 @@ pre, code {
           box-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75) !important;
   text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75) !important;
 }
+
+.like {
+  color: red !important;
+}
+
+.rtw {
+  color: green !important;
+}
+
+.bookmark {
+  color: #f7fc00 !important;
+}
 /*# sourceMappingURL=styles.css.map */

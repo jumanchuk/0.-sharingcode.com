@@ -132,13 +132,13 @@ class Tweet {
             '</i>' +
             '</a>' +
 
-            '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="retweet(this)">' +
+            '<a class="p-2 fa-tw-icons rounded-circle ' + (this.retweet > 0 ? "rtw" : "") + '" href="#" onclick="retweet(this)">' +
             '<i class="fa fa-retweet"> ' + this.retweet +
             '</i>' +
             '</a>' +
 
-            '<a class="p-2 fa-tw-icons rounded-circle" href="#" onclick="like(this)">' +
-            '<i class="fa fa-heart"> '+ this.like +
+            '<a class="p-2 fa-tw-icons rounded-circle ' + (this.like > 0 ? "like" : "") + '" href="#" onclick="like(this)">' +
+            '<i id="lk' + this.id +'" class="fa fa-heart"> '+ this.like +
             '</i>' +
             '</a>' +
 
@@ -168,8 +168,10 @@ function like(element) {
             element.children[0].textContent = '\u00A0' + sum;
         }
 
-        element.style.setProperty("color", "red", "important");
+        $(element.children[0]).fadeToggle().fadeToggle();
+
         element.classList.add("like");
+
     } else {
 
         let sum = parseInt(value) - parseInt(1);
@@ -180,8 +182,10 @@ function like(element) {
             element.children[0].textContent = '\u00A0' + sum;
         }
 
-        element.style.setProperty("color", "white", "important");
         element.classList.remove("like");
+
+        $(element.children[0]).fadeToggle().fadeToggle();
+
     }
 }
 
@@ -199,8 +203,9 @@ function retweet(element) {
             element.children[0].textContent = '\u00A0' + sum;
         }
 
-        element.style.setProperty("color", "green", "important");
+        $(element.children[0]).fadeToggle().fadeToggle();
         element.classList.add("rtw");
+        
     } else {
 
         let sum = parseInt(value) - parseInt(1);
@@ -211,41 +216,23 @@ function retweet(element) {
             element.children[0].textContent = '\u00A0' + sum;
         }
 
-        element.style.setProperty("color", "white", "important");
         element.classList.remove("rtw");
+        $(element.children[0]).fadeToggle().fadeToggle();
 
     }
 }
 
 function addToBookmark(element) {
 
-    let value = document.getElementById("fav").children[0].textContent;
-
     if (!element.classList.contains("bookmark")) {
 
-        element.style.setProperty("color", "rgb(247, 252, 0)", "important");
+        $(element.children[0]).fadeToggle().fadeToggle();
         element.classList.add("bookmark");
-
-        let sum = parseInt(value) + parseInt(1);
-
-        if (sum < 1) {
-            document.getElementById("fav").children[0].textContent = ' 0';
-        } else {
-            document.getElementById("fav").children[0].textContent = '\u00A0' + sum;
-        }
 
     } else {
 
-        element.style.setProperty("color", "white", "important");
         element.classList.remove("bookmark");
-
-        let sum = parseInt(value) - parseInt(1);
-
-        if (sum < 1) {
-            document.getElementById("fav").children[0].textContent = ' 0';
-        } else {
-            document.getElementById("fav").children[0].textContent = '\u00A0' + sum;
-        }
+        $(element.children[0]).fadeToggle().fadeToggle();
 
     }
 }
@@ -297,7 +284,7 @@ function formatDate(date) {
         if (month < 10) {
             month = `0${month}`
         }
-        return `${day}:${month}:${newDate.getFullYear()} ${newDate.getDay}`;
+        return `${day}/${month}/${newDate.getFullYear()}`;
     }
 
 }
