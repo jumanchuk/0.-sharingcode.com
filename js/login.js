@@ -20,3 +20,7 @@ function redireccionar(url){
 
     window.location.href = url; //relative to domain
 } 
+
+
+
+
