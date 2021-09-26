@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Jury Umanchuk</h1>
-<h3 align="center">A passionate frontend developer from Argentina, and this is my Javascript Project</h3>
+<h3 align="left">A passionate frontend developer from Argentina, and this is my Javascript Project</h3>
 
 - 🔭 I’m currently working on **IUDÚ** as Tech Lead
 
