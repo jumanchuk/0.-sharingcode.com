@@ -321,4 +321,14 @@ pre, code {
 .bookmark {
   color: #f7fc00 !important;
 }
+
+.alert {
+  position: fixed !important;
+  z-index: 1000 !important;
+  margin: 25px 25px 25px 25px !important;
+}
+
+.hidden {
+  display: none !important;
+}
 /*# sourceMappingURL=styles.css.map */

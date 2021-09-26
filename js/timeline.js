@@ -25,7 +25,6 @@ if (!localStorage.getItem('dataBase')){
 let dataBase = localStorage.getItem('dataBase');
 let tweets = JSON.parse(dataBase);
 
-/*
 tweets.sort(function (a, b) {
 
   if (a.datetime > b.datetime) {
@@ -39,7 +38,7 @@ tweets.sort(function (a, b) {
   // a must be equal to b
   return 0;
   
-});*/
+});
 
 for(let i = 0; i <tweets.length;i++){
 

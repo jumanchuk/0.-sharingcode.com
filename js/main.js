@@ -73,7 +73,7 @@ class Tweet {
         if (this.text == "") {
 
             let error = document.getElementById('error');
-            error.innerHTML = 'This is awkward 🥴, you have to write something 👀.';
+            error.innerHTML = 'This is awkward 🥴, you have to write something ☝️.';
             error.removeAttribute('hidden');
 
             throw "Error parametros insuficientes";
@@ -257,7 +257,6 @@ function filter(element) {
 
 function formatDate(date) {
     //font: https://javascript.info/date
-    debugger;
 
     if ( typeof date == "string") {
         dateParse = Date.parse(date);
@@ -294,3 +293,10 @@ function formatDate(date) {
     }
 
 }
+  
+  function notImplemented(){
+    $('#alert_placeholder').html('<div class="alert alert-warning alert-dismissable"><strong>Holy guacamole!</strong> This functionality is not implemented yet. Come Back soon!</div>')
+    setTimeout(function() {
+        $("div.alert").remove();
+    }, 3000);
+  }

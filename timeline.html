@@ -15,7 +15,7 @@
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" async></script>
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" sync></script>
         
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="js/main.js"></script>
@@ -26,6 +26,14 @@
 <body>
 
     <div class="container-fluid">
+
+        <div class="alert alert-warning alert-dismissible" style="display:none;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+           
+          </div>
+
+        <div id = "alert_placeholder"></div>
+        
         <div class="row scrollind">
             <!--Left-->
             <div class="col-sm-2 col-md-2 col-lg-4 d-none d-sm-block slides subscrollind ">
@@ -36,14 +44,14 @@
                                 <ul class="tw-ul d-none d-sm-block d-lg-none">
                                     <li><a href="#"><span
                                                 class="rounded-circle fa-st-icons fa fa-code fa-ul"></span></a></li>
-                                    <li><a href="#"><span
+                                    <li><a  href="timeline.html"><span
                                                 class="rounded-circle fa-st-icons fa fa-home fa-ul"></span></a></li>
-                                    <li><a href="#"><span
+                                    <li><a href="#" onclick="notImplemented()"><span
                                                 class="rounded-circle fa-st-icons fa fa-envelope-o fa-ul"></span></a>
                                     </li>
-                                    <li><a href="#"><span
+                                    <li><a href="#" onclick="notImplemented()"><span
                                                 class="rounded-circle fa-st-icons fa fa-bell fa-ul"></span></a></li>
-                                    <li><a href="#"><span
+                                    <li><a href="#" onclick="notImplemented()"><span
                                                 class="rounded-circle fa-st-icons fa fa-user fa-ul"></span></a></li>
                                     <li><a id="btn-md-logout" href="#"><span
                                                 class="rounded-circle fa-st-icons fa fa-sign-out fa-ul"></span></a></li>
@@ -51,10 +59,10 @@
                                 <ul class="tw-ul d-none d-lg-block">
                                     <li><a href="#"><span class="fa fa-code fa-ul"></span></a></li>
                                     <li><a href="timeline.html"><span class="fa fa-home fa-ul"></span> Home</a></li>
-                                    <li><a href="#"><span class="fa fa-hashtag fa-ul"></span> Popular</a></li>
-                                    <li><a href="#"><span class="fa fa-envelope-o fa-ul"></span> Messages</a></li>
-                                    <li><a href="#"><span class="fa fa-bell fa-ul"></span> Notifications</a></li>
-                                    <li><a href="#"><span class="fa fa-user fa-ul"></span> Profile</a></li>
+                                    <li><a href="#" onclick="notImplemented()"><span class="fa fa-hashtag fa-ul"></span> Popular</a></li>
+                                    <li><a href="#" onclick="notImplemented()"><span class="fa fa-envelope-o fa-ul"></span> Messages</a></li>
+                                    <li><a href="#" onclick="notImplemented()"><span class="fa fa-bell fa-ul"></span> Notifications</a></li>
+                                    <li><a href="#" onclick="notImplemented()"><span class="fa fa-user fa-ul"></span> Profile</a></li>
                                     <li><a id="btn-logout" href="#"><span class="fa fa-sign-out fa-ul"></span>
                                             LogOut</a></li>
                                 </ul>
@@ -65,8 +73,8 @@
             </div>
             <!--End Left-->
 
-            <!--Rigth-->
-            <div class="col-sm-10 col-md-6 col-lg-4 slides subscrollind" style="height: 100vh;">
+            <!--Center-->
+            <div id="center" class="col-sm-10 col-md-6 col-lg-4 slides subscrollind" style="height: 100vh;">
                 <div class="container timeline">
                     <div class="row">
                         <!--Start Card-->
@@ -119,9 +127,10 @@
                     </div>
                 </div>
             </div>
-            <!--End Rigth-->
+            <!--End Center-->
 
-            <div class="col-md-4 d-none d-md-block slides subscrollind" style="height: 100vh;">
+            <!--Right-->
+            <div id="right" class="col-md-4 d-none d-md-block slides subscrollind" style="height: 100vh;">
                 <div class="col-md-10 col-lg-6 news-card d-flex flex-column">
                     <p>Popular</p>
                     <ul class="mr-auto p-2">
@@ -153,14 +162,17 @@
                     </ul>
                 </div>
             </div>
+             <!--End Right-->
+
         </div>
     </div>
+
     <nav class="d-block d-sm-none navbar-fixed navbar-dark bg-dark justify-forced">
         <div class="d-flex justify-content-around justify-forced">
-            <a class="p-2 rounded-circle fa-st-icons" href="#"><i class="fa fa-home"></i></a>
-            <a class="p-2 rounded-circle fa-st-icons" href="#"><i class="fa fa-hashtag"></i></a>
-            <a class="p-2 rounded-circle fa-st-icons" href="#"><i class="fa fa-envelope-o"></i></a>
-            <a class="p-2 rounded-circle fa-st-icons" href="#"><i class="fa fa-bell"></i></a>
+            <a class="p-2 rounded-circle fa-st-icons" href="timeline.html"><i class="fa fa-home"></i></a>
+            <a class="p-2 rounded-circle fa-st-icons" href="#" onclick="notImplemented()"><i class="fa fa-hashtag"></i></a>
+            <a class="p-2 rounded-circle fa-st-icons" href="#" onclick="notImplemented()"><i class="fa fa-envelope-o"></i></a>
+            <a class="p-2 rounded-circle fa-st-icons" href="#" onclick="notImplemented()"><i class="fa fa-bell"></i></a>
             <a id="btn-sm-logout" class="p-2 rounded-circle fa-st-icons" href="#"><i class="fa fa-sign-out"></i></a>
 
         </div>

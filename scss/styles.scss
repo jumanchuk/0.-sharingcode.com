@@ -334,3 +334,14 @@ pre, code {
 
     color: rgb(247, 252, 0) !important;
 }
+
+.alert{
+    position: fixed !important;
+    z-index: 1000 !important;
+    margin: 25px 25px 25px 25px !important;
+}
+
+.hidden{
+
+    display: none !important;
+}
