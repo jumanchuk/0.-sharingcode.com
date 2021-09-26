@@ -6,13 +6,13 @@ let user = JSON.parse(userls);
 function toggleCodeBox() {
 
     let element = document.getElementById("code-box");
-    
+
     if (element.hidden == true) {
 
         element.hidden = false;
 
     } else {
-        
+
         element.value = "";
         element.hidden = true;
 
@@ -27,7 +27,7 @@ function send() {
     now = new Date() - 1;
     let dataBase = JSON.parse(localStorage.getItem('dataBase'));
 
-    const tweet = new Tweet(dataBase.length + 1, user.fullname, '@' + user.username, text, code, 0, 0, 0,now);
+    const tweet = new Tweet(dataBase.length + 1, user.fullname, '@' + user.username, text, code, 0, 0, 0, now);
     dataBase.push(tweet);
 
     try {
@@ -80,7 +80,7 @@ class Tweet {
 
         } else {
 
-            localStorage.setItem('dataBase',JSON.stringify(dataBase));
+            localStorage.setItem('dataBase', JSON.stringify(dataBase));
             return 'OK'
 
         }
@@ -90,7 +90,7 @@ class Tweet {
 
         let error = document.getElementById('error');
 
-        if(error){
+        if (error) {
             error.innerHTML = "";
             error.hidden = "true";
         }
@@ -127,7 +127,7 @@ class Tweet {
             '</i>' +
             '</a>' +
 
-            '<a class="p-2 fa-tw-icons ' + (this.bookmark ? "bookmark" : "") +  ' rounded-circle" href="#" onclick="addToBookmark(this)">' +
+            '<a class="p-2 fa-tw-icons ' + (this.bookmark ? "bookmark" : "") + ' rounded-circle" href="#" onclick="addToBookmark(this)">' +
             '<i class="fa fa-star">' +
             '</i>' +
             '</a>' +
@@ -138,7 +138,7 @@ class Tweet {
             '</a>' +
 
             '<a class="p-2 fa-tw-icons rounded-circle ' + (this.like > 0 ? "like" : "") + '" href="#" onclick="like(this)">' +
-            '<i id="lk' + this.id +'" class="fa fa-heart"> '+ this.like +
+            '<i id="lk' + this.id + '" class="fa fa-heart"> ' + this.like +
             '</i>' +
             '</a>' +
 
@@ -160,12 +160,12 @@ function like(element) {
 
     if (!element.classList.contains("like")) {
 
-        let sum = parseInt(value) + parseInt(1);
+        let TotalLike = parseInt(value) + parseInt(1);
 
-        if (sum < 1) {
+        if (TotalLike < 1) {
             element.children[0].textContent = ' 0';
         } else {
-            element.children[0].textContent = '\u00A0' + sum;
+            element.children[0].textContent = '\u00A0' + TotalLike;
         }
 
         $(element.children[0]).fadeToggle().fadeToggle();
@@ -174,12 +174,12 @@ function like(element) {
 
     } else {
 
-        let sum = parseInt(value) - parseInt(1);
+        let TotalLike = parseInt(value) - parseInt(1);
 
-        if (sum < 1) {
+        if (TotalLike < 1) {
             element.children[0].textContent = ' 0';
         } else {
-            element.children[0].textContent = '\u00A0' + sum;
+            element.children[0].textContent = '\u00A0' + TotalLike;
         }
 
         element.classList.remove("like");
@@ -195,25 +195,25 @@ function retweet(element) {
 
     if (!element.classList.contains("rtw")) {
 
-        let sum = parseInt(value) + parseInt(1);
+        let TotalRetweet = parseInt(value) + parseInt(1);
 
-        if (sum < 1) {
+        if (TotalRetweet < 1) {
             element.children[0].textContent = ' 0';
         } else {
-            element.children[0].textContent = '\u00A0' + sum;
+            element.children[0].textContent = '\u00A0' + TotalRetweet;
         }
 
         $(element.children[0]).fadeToggle().fadeToggle();
         element.classList.add("rtw");
-        
+
     } else {
 
-        let sum = parseInt(value) - parseInt(1);
+        let TotalRetweet = parseInt(value) - parseInt(1);
 
-        if (sum < 1) {
+        if (TotalRetweet < 1) {
             element.children[0].textContent = ' 0';
         } else {
-            element.children[0].textContent = '\u00A0' + sum;
+            element.children[0].textContent = '\u00A0' + TotalRetweet;
         }
 
         element.classList.remove("rtw");
@@ -237,43 +237,49 @@ function addToBookmark(element) {
     }
 }
 
-function filter(element){
+function filter(element) {
 
     let hashtagFilter = element.innerText;
     let dataBase = JSON.parse(localStorage.getItem('dataBase'));
 
     $("div.card-timeline").hide('slow').remove();
-    
+
     const tweets = dataBase.filter(query => query.text.includes(hashtagFilter));
 
-    for(let i = 0; i <tweets.length;i++){
+    for (let i = 0; i < tweets.length; i++) {
 
-    const tweet = new Tweet(tweets[i].id,tweets[i].name,tweets[i].user,tweets[i].text,tweets[i].code,tweets[i].bookmark,tweets[i].retweet,tweets[i].like,tweets[i].datetime);
-    tweet.print();
+        const tweet = new Tweet(tweets[i].id, tweets[i].name, tweets[i].user, tweets[i].text, tweets[i].code, tweets[i].bookmark, tweets[i].retweet, tweets[i].like, tweets[i].datetime);
+        tweet.print();
 
     }
-
 
 }
 
 function formatDate(date) {
     //font: https://javascript.info/date
+    debugger;
 
-    if ((new Date() - date) / 1000 < 1) {
+    if ( typeof date == "string") {
+        dateParse = Date.parse(date);
+    }else{
+        dateParse = date;
+    }
+
+    if ((new Date() - dateParse) / 1000 < 1) {
         return 'right now';
     }
-    else if ((new Date() - date) / 1000 > 1 && (new Date() - date) / 1000 < 60) {
+    else if ((new Date() - dateParse) / 1000 > 1 && (new Date() - dateParse) / 1000 < 60) {
         let n = Math.floor((new Date() - date) / 1000);
         return `${n} sec. ago`;
 
-    } else if ((new Date() - date) / 1000 > 60 && (new Date() - date) / 1000 < 3600) {
+    } else if ((new Date() - dateParse) / 1000 > 60 && (new Date() - dateParse) / 1000 < 3600) {
 
-        let m = Math.floor((new Date() - date) / (1000 * 60));
+        let m = Math.floor((new Date() - dateParse) / (1000 * 60));
         return `${m} min. ago`;
 
-    } else if ((new Date() - date) / 1000 > 3600) {
+    } else if ((new Date() - dateParse) / 1000 > 3600) {
 
-        let newDate = new Date(date);
+        let newDate = new Date(dateParse);
         let day = newDate.getDate();
         let month = newDate.getMonth();
 
